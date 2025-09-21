@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@RestController
 public class TelevisionsController {
     Map<Integer, Television> databaseOfTVs = new HashMap<Integer,Television>();
 
@@ -17,18 +18,18 @@ public class TelevisionsController {
     }
 
     @GetMapping("/tvs/{id}")
-    public ResponseEntity<String> getOneTV(@PathVariable int id) {
+    public ResponseEntity<Television> getOneTV(@PathVariable int id) {
         if (databaseOfTVs.containsKey(id)) {
             Television tv = databaseOfTVs.get(id);
-            return ResponseEntity.ok("television");
+            return ResponseEntity.ok(tv);
         } else {
-            throw new RuntimeException("The TV with id " + id + " was not found.");
+            throw new RecordNotFoundException("The TV with id " + id + " was not found.");
         }
     }
 
-    @PostMapping
-    public ResponseEntity<String> addTV(@RequestBody Television tv, int id){
-        this.databaseOfTVs.put(id, tv);
+    @PostMapping("/tvs")
+    public ResponseEntity<String> addTV(@RequestBody Television tv){
+        this.databaseOfTVs.put(tv.getId(), tv);
         return ResponseEntity.created(null).body("television");
     }
 
@@ -48,8 +49,7 @@ public class TelevisionsController {
         if(!databaseOfTVs.containsKey(id)){
             throw new RecordNotFoundException("The TV with id " + id + " was not found.");
         } else {
-            Television foundTV = databaseOfTVs.get(id);
-            databaseOfTVs.remove(foundTV);
+            databaseOfTVs.remove(id);
             return ResponseEntity.noContent().build();
         }
     }
