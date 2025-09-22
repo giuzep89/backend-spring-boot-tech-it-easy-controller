@@ -6,7 +6,6 @@ public class Television {
     private String model;
     private double price;
 
-    // Constructors
     public Television() {
     }
 
@@ -17,7 +16,6 @@ public class Television {
         this.price = price;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }

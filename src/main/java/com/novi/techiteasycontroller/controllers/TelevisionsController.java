@@ -1,5 +1,6 @@
 package com.novi.techiteasycontroller.controllers;
 
+import com.novi.techiteasycontroller.exceptions.NameTooLongException;
 import com.novi.techiteasycontroller.exceptions.RecordNotFoundException;
 import com.novi.techiteasycontroller.models.Television;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +30,12 @@ public class TelevisionsController {
 
     @PostMapping("/tvs")
     public ResponseEntity<String> addTV(@RequestBody Television tv){
-        this.databaseOfTVs.put(tv.getId(), tv);
-        return ResponseEntity.created(null).body("television");
+        if(tv.getBrand().length() > 20){
+            throw new NameTooLongException("The brand name you provided is too long");
+        } else {
+            this.databaseOfTVs.put(tv.getId(), tv);
+            return ResponseEntity.created(null).body("television");
+        }
     }
 
     @PutMapping("/tvs/{id}")
@@ -53,8 +58,4 @@ public class TelevisionsController {
             return ResponseEntity.noContent().build();
         }
     }
-
-
-
-
 }
