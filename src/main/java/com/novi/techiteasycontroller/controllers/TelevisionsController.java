@@ -4,6 +4,7 @@ import com.novi.techiteasycontroller.dtos.TelevisionDto;
 import com.novi.techiteasycontroller.dtos.TelevisionInputDto;
 import com.novi.techiteasycontroller.models.Television;
 import com.novi.techiteasycontroller.services.TelevisionService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,14 +34,14 @@ public class TelevisionsController {
 
 
     @PostMapping
-    public ResponseEntity<TelevisionDto> addTV(@RequestBody TelevisionInputDto televisionInputDto) {
+    public ResponseEntity<TelevisionDto> addTV(@Valid @RequestBody TelevisionInputDto televisionInputDto) {
         TelevisionDto newTelevision = televisionService.addTelevision(televisionInputDto);
 
         return ResponseEntity.created(null).body(newTelevision);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TelevisionDto> updateTVPrice(@PathVariable Long id, @RequestBody TelevisionInputDto tvToUpdate) {
+    public ResponseEntity<TelevisionDto> updateTVPrice(@Valid @PathVariable Long id, @RequestBody TelevisionInputDto tvToUpdate) {
         TelevisionDto updatedTv = televisionService.updateTelevisionPrice(id, tvToUpdate);
 
         return ResponseEntity.ok(updatedTv);

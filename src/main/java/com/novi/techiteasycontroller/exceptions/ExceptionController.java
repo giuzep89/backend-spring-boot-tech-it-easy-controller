@@ -2,8 +2,12 @@ package com.novi.techiteasycontroller.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @ControllerAdvice
 public class ExceptionController {
@@ -19,13 +23,12 @@ public class ExceptionController {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    // I wrote the following as one of the points in the bonus, but to be honest it was already handled neatly
-    // in the methode above, which catches any ID that's not in the list. So according to "BONUS BONUS",
-    // it's irrelevant.
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+        public ResponseEntity<Map<String, String>> handleValidationErrors(MethodArgumentNotValidException exception){
+            Map<String, String> errors = new HashMap<>();
 
-//    @ExceptionHandler(value = IndexOutOfBoundsException.class)
-//    public ResponseEntity<Object> handleIndexOutOfBound(IndexOutOfBoundsException exception){
-//        return new ResponseEntity<>("Index out of bound!", HttpStatus.NOT_FOUND);
-//    }
+            exception.getBindingResult().getFieldErrors().forEach((e) -> errors.put(e.getField(), e.getDefaultMessage()));
 
+            return ResponseEntity.badRequest().body(errors);
+    }
 }

@@ -2,8 +2,6 @@ package com.novi.techiteasycontroller.dtos;
 
 import com.novi.techiteasycontroller.models.Television;
 
-import java.time.LocalDateTime;
-
 public class TelevisionDto {
 
     public Long id;
