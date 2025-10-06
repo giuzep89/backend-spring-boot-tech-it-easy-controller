@@ -11,6 +11,7 @@ public class ExceptionController {
     @ExceptionHandler(value = RecordNotFoundException.class)
     public ResponseEntity<Object> handleNotFound(RecordNotFoundException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+        // change to ResponseEntity.status (without using NEW)
     }
 
     @ExceptionHandler(value = NameTooLongException.class)

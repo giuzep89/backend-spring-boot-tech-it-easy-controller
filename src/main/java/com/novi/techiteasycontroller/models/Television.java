@@ -172,7 +172,7 @@ public class Television {
         this.screenQuality = screenQuality;
     }
 
-    public boolean isSmartTv() {
+    public boolean hasSmartTv() {
         return smartTv;
     }
 
@@ -180,7 +180,7 @@ public class Television {
         this.smartTv = smartTv;
     }
 
-    public boolean isWifi() {
+    public boolean hasWifi() {
         return wifi;
     }
 
@@ -188,7 +188,7 @@ public class Television {
         this.wifi = wifi;
     }
 
-    public boolean isVoiceControl() {
+    public boolean hasVoiceControl() {
         return voiceControl;
     }
 
@@ -196,7 +196,7 @@ public class Television {
         this.voiceControl = voiceControl;
     }
 
-    public boolean isHdr() {
+    public boolean hasHdr() {
         return hdr;
     }
 
@@ -204,7 +204,7 @@ public class Television {
         this.hdr = hdr;
     }
 
-    public boolean isBluetooth() {
+    public boolean hasBluetooth() {
         return bluetooth;
     }
 
@@ -212,7 +212,7 @@ public class Television {
         this.bluetooth = bluetooth;
     }
 
-    public boolean isAmbiLight() {
+    public boolean hasAmbiLight() {
         return ambiLight;
     }
 
