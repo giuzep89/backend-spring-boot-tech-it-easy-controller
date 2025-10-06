@@ -20,8 +20,4 @@ public class TelevisionInputDto {
     public boolean hdr;
     public boolean bluetooth;
     public boolean ambiLight;
-
-    public String getBrand() {
-        return this.brand;
-    }
 }
