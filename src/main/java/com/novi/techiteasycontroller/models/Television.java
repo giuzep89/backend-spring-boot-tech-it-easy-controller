@@ -1,9 +1,7 @@
 package com.novi.techiteasycontroller.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,7 +9,7 @@ import java.time.LocalDateTime;
 public class Television {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String type;
     private String brand;
@@ -32,30 +30,6 @@ public class Television {
     private LocalDateTime dateOfSale;
     private LocalDateTime dateOfPurchase;
 
-    public Television() {
-    }
-
-    public Television(Long id, String type, String brand, String name, double price, AvailableSizes availableSizes, RefreshRate refreshRate, ScreenType screenType, ScreenQuality screenQuality, boolean smartTv, boolean wifi, boolean voiceControl, boolean hdr, boolean bluetooth, boolean ambiLight, int originalStock, int sold, LocalDateTime dateOfSale, LocalDateTime dateOfPurchase) {
-        this.id = id;
-        this.type = type;
-        this.brand = brand;
-        this.name = name;
-        this.price = price;
-        this.availableSizes = availableSizes;
-        this.refreshRate = refreshRate;
-        this.screenType = screenType;
-        this.screenQuality = screenQuality;
-        this.smartTv = smartTv;
-        this.wifi = wifi;
-        this.voiceControl = voiceControl;
-        this.hdr = hdr;
-        this.bluetooth = bluetooth;
-        this.ambiLight = ambiLight;
-        this.originalStock = originalStock;
-        this.sold = sold;
-        this.dateOfSale = dateOfSale;
-        this.dateOfPurchase = dateOfPurchase;
-    }
 
     // Enums for all the options with multiple choices
     public enum AvailableSizes {
@@ -100,6 +74,7 @@ public class Television {
 
 
     // Getters & Setters
+
     public AvailableSizes getAvailableSizes() {
         return availableSizes;
     }
