@@ -15,7 +15,6 @@ public class WallBracket {
     private Double price;
 
 
-
     // Getters and Setters
 
     public Long getId() {

@@ -13,8 +13,6 @@ public class CIModule {
     private String type;
     private Double price;
 
-
-
     // Getters and Setters
 
     public Long getId() {

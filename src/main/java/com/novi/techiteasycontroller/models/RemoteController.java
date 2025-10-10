@@ -17,8 +17,6 @@ public class RemoteController {
     private Integer originalStock;
 
 
-
-
     // Getters and setters
 
     public Long getId() {
