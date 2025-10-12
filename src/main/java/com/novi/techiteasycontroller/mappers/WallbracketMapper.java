@@ -1,11 +1,12 @@
 package com.novi.techiteasycontroller.mappers;
 
 import com.novi.techiteasycontroller.dtos.WallbracketDto;
+import com.novi.techiteasycontroller.dtos.WallbracketInputDto;
 import com.novi.techiteasycontroller.models.Wallbracket;
 
 public class WallbracketMapper {
 
-    public static Wallbracket toEntity(WallbracketDto dto){
+    public static Wallbracket toEntity(WallbracketInputDto dto){
         Wallbracket entity = new Wallbracket();
 
         entity.setSize(dto.size);

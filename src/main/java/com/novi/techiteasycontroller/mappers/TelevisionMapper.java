@@ -6,46 +6,46 @@ import com.novi.techiteasycontroller.models.Television;
 
 public class TelevisionMapper {
 
-    public static Television toEntity(TelevisionInputDto televisionInputDto){
-        Television television = new Television();
+    public static Television toEntity(TelevisionInputDto inputDto){
+        Television entity = new Television();
 
-        television.setType(televisionInputDto.type);
-        television.setBrand(televisionInputDto.brand);
-        television.setName(televisionInputDto.name);
-        television.setPrice(televisionInputDto.price);
-        television.setAvailableSizes(televisionInputDto.availableSizes);
-        television.setRefreshRate(televisionInputDto.refreshRate);
-        television.setScreenQuality(televisionInputDto.screenQuality);
-        television.setScreenType(televisionInputDto.screenType);
-        television.setSmartTv(televisionInputDto.smartTv);
-        television.setWifi(televisionInputDto.wifi);
-        television.setBluetooth(televisionInputDto.bluetooth);
-        television.setHdr(televisionInputDto.hdr);
-        television.setAmbiLight(televisionInputDto.ambiLight);
-        television.setVoiceControl(televisionInputDto.voiceControl);
+        entity.setType(inputDto.type);
+        entity.setBrand(inputDto.brand);
+        entity.setName(inputDto.name);
+        entity.setPrice(inputDto.price);
+        entity.setAvailableSizes(inputDto.availableSizes);
+        entity.setRefreshRate(inputDto.refreshRate);
+        entity.setScreenQuality(inputDto.screenQuality);
+        entity.setScreenType(inputDto.screenType);
+        entity.setSmartTv(inputDto.smartTv);
+        entity.setWifi(inputDto.wifi);
+        entity.setBluetooth(inputDto.bluetooth);
+        entity.setHdr(inputDto.hdr);
+        entity.setAmbiLight(inputDto.ambiLight);
+        entity.setVoiceControl(inputDto.voiceControl);
 
-        return television;
+        return entity;
     }
 
-    public static TelevisionDto toDto(Television television){
-        TelevisionDto televisionDto = new TelevisionDto();
+    public static TelevisionDto toDto(Television entity){
+        TelevisionDto dto = new TelevisionDto();
 
-        televisionDto.id = television.getId();
-        televisionDto.type = television.getType();
-        televisionDto.brand = television.getBrand();
-        televisionDto.name = television.getName();
-        televisionDto.price = television.getPrice();
-        televisionDto.availableSizes = television.getAvailableSizes();
-        televisionDto.refreshRate = television.getRefreshRate();
-        televisionDto.screenQuality = television.getScreenQuality();
-        televisionDto.screenType = television.getScreenType();
-        televisionDto.smartTv = television.hasSmartTv();
-        televisionDto.wifi = television.hasWifi();
-        televisionDto.bluetooth = television.hasBluetooth();
-        televisionDto.ambiLight = television.hasAmbiLight();
-        televisionDto.voiceControl = television.hasVoiceControl();
+        dto.id = entity.getId();
+        dto.type = entity.getType();
+        dto.brand = entity.getBrand();
+        dto.name = entity.getName();
+        dto.price = entity.getPrice();
+        dto.availableSizes = entity.getAvailableSizes();
+        dto.refreshRate = entity.getRefreshRate();
+        dto.screenQuality = entity.getScreenQuality();
+        dto.screenType = entity.getScreenType();
+        dto.smartTv = entity.hasSmartTv();
+        dto.wifi = entity.hasWifi();
+        dto.bluetooth = entity.hasBluetooth();
+        dto.ambiLight = entity.hasAmbiLight();
+        dto.voiceControl = entity.hasVoiceControl();
 
-        return televisionDto;
+        return dto;
     }
 }
 

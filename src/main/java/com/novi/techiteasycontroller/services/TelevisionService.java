@@ -25,11 +25,11 @@ public class TelevisionService {
         if (televisionInputDto.brand.length() > 20) {
             throw new NameTooLongException("The brand name you provided is too long");
         }
-        Television television = TelevisionMapper.toEntity(televisionInputDto);
+        Television newTelevision = TelevisionMapper.toEntity(televisionInputDto);
 
-        this.televisionRepository.save(television);
+        this.televisionRepository.save(newTelevision);
 
-        return TelevisionMapper.toDto(television);
+        return TelevisionMapper.toDto(newTelevision);
 
     }
 
