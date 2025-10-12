@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "wallbrackets")
-public class WallBracket {
+public class Wallbracket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

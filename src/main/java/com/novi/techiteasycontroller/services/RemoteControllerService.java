@@ -1,12 +1,13 @@
 package com.novi.techiteasycontroller.services;
 
+import com.novi.techiteasycontroller.dtos.RemoteControllerDto;
+import com.novi.techiteasycontroller.dtos.RemoteControllerInputDto;
+import com.novi.techiteasycontroller.models.RemoteController;
 import com.novi.techiteasycontroller.repositories.RemoteControllerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RemoteControllerService {
-
 
     private final RemoteControllerRepository remoteControllerRepository;
 
@@ -14,7 +15,11 @@ public class RemoteControllerService {
         this.remoteControllerRepository = remoteControllerRepository;
     }
 
-    // Continue writing the CRUD methods after having the DTOs ready
+    // TODO: Write logic (methods)
+
+//    public RemoteControllerDto addRemoteController(RemoteControllerInputDto remoteControllerInputDto) {
+//        RemoteController remoteController = Remote
+//    }
 
 
 

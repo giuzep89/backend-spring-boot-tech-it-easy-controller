@@ -8,9 +8,9 @@ public class CIModuleInputDto {
 
     @NotBlank(message = "Name cannot be blank")
     @Size(max = 40, message = "Name cannot exceed 40 characters")
-    private String name;
+    public String name;
     @NotBlank(message = "Type cannot be blank")
-    private String type;
+    public String type;
     @Positive(message = "Price can't be negative or zero")
-    private Double price;
+    public Double price;
 }
