@@ -7,7 +7,9 @@ import com.novi.techiteasycontroller.services.TelevisionService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -27,9 +29,7 @@ public class TelevisionsController {
 
     @GetMapping("/{id}")
     public ResponseEntity<TelevisionDto> getOneTV(@PathVariable Long id) {
-        TelevisionDto tvToFind = televisionService.getTelevisionById(id);
-
-        return ResponseEntity.ok(tvToFind);
+        return ResponseEntity.ok(televisionService.getTelevisionById(id));
     }
 
 
@@ -37,14 +37,20 @@ public class TelevisionsController {
     public ResponseEntity<TelevisionDto> addTV(@Valid @RequestBody TelevisionInputDto televisionInputDto) {
         TelevisionDto newTelevision = televisionService.addTelevision(televisionInputDto);
 
-        return ResponseEntity.created(null).body(newTelevision);
+        URI location = URI.create(ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(newTelevision.id)
+                .toUriString());
+
+        return ResponseEntity.created(location).body(newTelevision);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TelevisionDto> updateTVPrice(@Valid @PathVariable Long id, @RequestBody TelevisionInputDto tvToUpdate) {
-        TelevisionDto updatedTv = televisionService.updateTelevisionPrice(id, tvToUpdate);
+    public ResponseEntity<TelevisionDto> updateTVPrice(@Valid @PathVariable Long id, @RequestBody TelevisionInputDto inputDto) {
+        TelevisionDto dto = televisionService.updateTelevisionPrice(id, inputDto);
 
-        return ResponseEntity.ok(updatedTv);
+        return ResponseEntity.ok(dto);
     }
 
     @DeleteMapping("/{id}")
