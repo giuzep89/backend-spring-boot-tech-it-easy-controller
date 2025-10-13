@@ -1,5 +1,6 @@
 package com.novi.techiteasycontroller.controllers;
 
+import com.novi.techiteasycontroller.dtos.IdInputDto;
 import com.novi.techiteasycontroller.dtos.TelevisionDto;
 import com.novi.techiteasycontroller.dtos.TelevisionInputDto;
 import com.novi.techiteasycontroller.models.Television;
@@ -14,11 +15,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/televisions")
-public class TelevisionsController {
+public class TelevisionController {
 
     private TelevisionService televisionService;
 
-    public TelevisionsController(TelevisionService televisionService) {
+    public TelevisionController(TelevisionService televisionService) {
         this.televisionService = televisionService;
     }
 
@@ -49,6 +50,27 @@ public class TelevisionsController {
     @PutMapping("/{id}")
     public ResponseEntity<TelevisionDto> updateTelevisionPrice(@Valid @PathVariable Long id, @RequestBody TelevisionInputDto inputDto) {
         TelevisionDto dto = televisionService.updateTelevisionPrice(id, inputDto);
+
+        return ResponseEntity.ok(dto);
+    }
+
+    @PutMapping("/{id}/remotecontroller")
+    public ResponseEntity<TelevisionDto> addRemoteController(@Valid @PathVariable Long televisionId, @RequestBody IdInputDto remoteControllerId) {
+        TelevisionDto dto = televisionService.assignRemoteControllerToTelevision(televisionId, remoteControllerId.id);
+
+        return ResponseEntity.ok(dto);
+    }
+
+    @PutMapping("/{id}/cimodule")
+    public ResponseEntity<TelevisionDto> addCiModule (@Valid @PathVariable Long televisionId, @RequestBody IdInputDto ciModuleId) {
+        TelevisionDto dto = televisionService.assignCIModuleToTelevision(televisionId, ciModuleId.id);
+
+        return ResponseEntity.ok(dto);
+    }
+
+    @PutMapping("/{id}/wallbracket")
+    public ResponseEntity<TelevisionDto> addWallbracket (@Valid @PathVariable Long televisionId, @RequestBody IdInputDto wallbracketId) {
+        TelevisionDto dto = televisionService.assignWallbracketToTelevision(televisionId, wallbracketId.id);
 
         return ResponseEntity.ok(dto);
     }

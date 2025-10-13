@@ -1,6 +1,7 @@
 package com.novi.techiteasycontroller.dtos;
 
 import com.novi.techiteasycontroller.models.Television;
+import com.novi.techiteasycontroller.models.Wallbracket;
 
 public class TelevisionDto {
 
@@ -19,4 +20,7 @@ public class TelevisionDto {
     public boolean hdr;
     public boolean bluetooth;
     public boolean ambiLight;
+    public RemoteControllerDto remoteControllerDto;
+    public CIModuleDto ciModuleDto;
+    public WallbracketDto wallbracketDto;
 }

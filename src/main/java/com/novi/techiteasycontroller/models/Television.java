@@ -238,4 +238,28 @@ public class Television {
     public void setDateOfPurchase(LocalDateTime dateOfPurchase) {
         this.dateOfPurchase = dateOfPurchase;
     }
+
+    public RemoteController getRemoteController() {
+        return remoteController;
+    }
+
+    public void setRemoteController(RemoteController remoteController) {
+        this.remoteController = remoteController;
+    }
+
+    public List<CIModule> getCiModules() {
+        return ciModules;
+    }
+
+    public void setCiModules(List<CIModule> ciModules) {
+        this.ciModules = ciModules;
+    }
+
+    public List<Wallbracket> getWallbrackets() {
+        return wallbrackets;
+    }
+
+    public void setWallbrackets(List<Wallbracket> wallbrackets) {
+        this.wallbrackets = wallbrackets;
+    }
 }

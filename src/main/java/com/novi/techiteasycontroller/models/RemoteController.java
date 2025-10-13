@@ -77,4 +77,12 @@ public class RemoteController {
     public void setOriginalStock(Integer originalStock) {
         this.originalStock = originalStock;
     }
+
+    public Television getTelevision() {
+        return television;
+    }
+
+    public void setTelevision(Television television) {
+        this.television = television;
+    }
 }
