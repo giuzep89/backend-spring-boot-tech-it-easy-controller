@@ -2,6 +2,8 @@ package com.novi.techiteasycontroller.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "wallbrackets")
 public class Wallbracket {
@@ -14,6 +16,8 @@ public class Wallbracket {
     private String name;
     private Double price;
 
+    @ManyToMany(mappedBy = "wallbrackets")
+    private List<Television> televisions;
 
     // Getters and Setters
 

@@ -21,7 +21,7 @@ public class TelevisionService {
         this.televisionRepository = televisionRepository;
     }
 
-    public TelevisionDto addTelevision(TelevisionInputDto televisionInputDto) {
+    public TelevisionDto createTelevision(TelevisionInputDto televisionInputDto) {
         if (televisionInputDto.brand.length() > 20) {
             throw new NameTooLongException("The brand name you provided is too long");
         }

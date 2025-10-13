@@ -2,7 +2,6 @@ package com.novi.techiteasycontroller.controllers;
 
 import com.novi.techiteasycontroller.dtos.CIModuleDto;
 import com.novi.techiteasycontroller.dtos.CIModuleInputDto;
-import com.novi.techiteasycontroller.models.CIModule;
 import com.novi.techiteasycontroller.services.CIModuleService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,7 @@ public class CIModuleController {
 
     @PostMapping
     public ResponseEntity<CIModuleDto> addCIModule(@Valid @RequestBody CIModuleInputDto ciModuleInputDto) {
-        CIModuleDto newCIModule = CIModuleService.addCIModule(ciModuleInputDto);
+        CIModuleDto newCIModule = CIModuleService.createCIModule(ciModuleInputDto);
 
         URI location = URI.create(ServletUriComponentsBuilder
                 .fromCurrentRequest()

@@ -32,8 +32,8 @@ public class WallbracketController {
     }
 
     @PostMapping
-    public ResponseEntity<WallbracketDto> createWallbracket(@Valid @RequestBody WallbracketInputDto wallbracketInputDto){
-        WallbracketDto newWallbracket = wallbracketService.addWallbracket(wallbracketInputDto);
+    public ResponseEntity<WallbracketDto> addWallbracket(@Valid @RequestBody WallbracketInputDto wallbracketInputDto){
+        WallbracketDto newWallbracket = wallbracketService.createWallbracket(wallbracketInputDto);
 
         URI location = URI.create(ServletUriComponentsBuilder
                 .fromCurrentRequest()

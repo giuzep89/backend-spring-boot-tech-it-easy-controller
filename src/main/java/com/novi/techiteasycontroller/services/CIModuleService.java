@@ -21,7 +21,7 @@ public class CIModuleService {
         this.ciModuleRepository = ciModuleRepository;
     }
 
-    public CIModuleDto addCIModule(CIModuleInputDto ciModuleInputDto) {
+    public CIModuleDto createCIModule(CIModuleInputDto ciModuleInputDto) {
         if (ciModuleInputDto.name.length() > 20) {
             throw new NameTooLongException("The name you provided is too long");
         }

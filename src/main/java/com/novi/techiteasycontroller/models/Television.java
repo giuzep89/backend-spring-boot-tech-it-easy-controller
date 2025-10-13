@@ -3,6 +3,7 @@ package com.novi.techiteasycontroller.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="televisions")
@@ -29,6 +30,17 @@ public class Television {
     private int sold;
     private LocalDateTime dateOfSale;
     private LocalDateTime dateOfPurchase;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "remote_controllers", nullable = false)
+    RemoteController  remoteController;
+
+    @OneToMany(mappedBy = "television")
+    private List<CIModule> ciModules;
+
+    @ManyToMany
+    @JoinTable(name = "televisions_wallbrackets,", joinColumns = @JoinColumn(name = "wallbracket_id"), inverseJoinColumns = @JoinColumn(name = "television_id"))
+    private List<Wallbracket> wallbrackets;
 
 
     // Enums for all the options with multiple choices

@@ -21,7 +21,7 @@ public class WallbracketService {
         this.wallbracketRepository = wallbracketRepository;
     }
 
-    public WallbracketDto addWallbracket(WallbracketInputDto wallbracketInputDto) {
+    public WallbracketDto createWallbracket(WallbracketInputDto wallbracketInputDto) {
         if (wallbracketInputDto.name.length() > 20) {
             throw new NameTooLongException("The name you provided is too long");
         }

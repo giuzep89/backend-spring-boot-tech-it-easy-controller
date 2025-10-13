@@ -2,6 +2,8 @@ package com.novi.techiteasycontroller.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "ci_modules")
 public class CIModule {
@@ -12,6 +14,10 @@ public class CIModule {
     private String name;
     private String type;
     private Double price;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "television_id")
+    private Television television;
 
     // Getters and Setters
 

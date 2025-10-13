@@ -2,7 +2,6 @@ package com.novi.techiteasycontroller.controllers;
 
 import com.novi.techiteasycontroller.dtos.RemoteControllerDto;
 import com.novi.techiteasycontroller.dtos.RemoteControllerInputDto;
-import com.novi.techiteasycontroller.dtos.TelevisionDto;
 import com.novi.techiteasycontroller.services.RemoteControllerService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +35,7 @@ public class RemoteControllerController {
 
     @PostMapping
     public ResponseEntity<RemoteControllerDto> addRemoteController(@Valid @RequestBody RemoteControllerInputDto inputDto) {
-        RemoteControllerDto newRemote = remoteControllerService.addRemoteController(inputDto);
+        RemoteControllerDto newRemote = remoteControllerService.createRemoteController(inputDto);
 
         URI location = URI.create(ServletUriComponentsBuilder
                 .fromCurrentRequest()

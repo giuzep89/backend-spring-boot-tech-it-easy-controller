@@ -16,6 +16,9 @@ public class RemoteController {
     private Double price;
     private Integer originalStock;
 
+    @OneToOne(mappedBy = "remoteController")
+    private Television television;
+
 
     // Getters and setters
 

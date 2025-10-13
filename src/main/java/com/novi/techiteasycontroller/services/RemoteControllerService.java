@@ -21,7 +21,7 @@ public class RemoteControllerService {
     }
 
 
-    public RemoteControllerDto addRemoteController(RemoteControllerInputDto inputDto) {
+    public RemoteControllerDto createRemoteController(RemoteControllerInputDto inputDto) {
         RemoteController newRemoteController = RemoteControllerMapper.toEntity(inputDto);
 
         this.remoteControllerRepository.save(newRemoteController);
