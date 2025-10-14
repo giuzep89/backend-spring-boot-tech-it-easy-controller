@@ -26,7 +26,7 @@ public class WallbracketController {
         return ResponseEntity.ok(wallbracketService.getAllWallbrackets());
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<WallbracketDto> getWallbracketById(@RequestParam Long id){
         return ResponseEntity.ok(wallbracketService.getWallbracketById(id));
     }

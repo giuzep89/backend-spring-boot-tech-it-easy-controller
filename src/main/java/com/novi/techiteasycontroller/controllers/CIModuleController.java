@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/cimodules")
 public class CIModuleController {
 
     private CIModuleService CIModuleService;

@@ -32,14 +32,14 @@ public class Television {
     private LocalDateTime dateOfPurchase;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "remote_controllers", nullable = false)
+    @JoinColumn(name = "remote_controllers", nullable = true)
     RemoteController  remoteController;
 
     @OneToMany(mappedBy = "television")
     private List<CIModule> ciModules;
 
     @ManyToMany
-    @JoinTable(name = "televisions_wallbrackets,", joinColumns = @JoinColumn(name = "wallbracket_id"), inverseJoinColumns = @JoinColumn(name = "television_id"))
+    @JoinTable(name = "televisions_wallbrackets", joinColumns = @JoinColumn(name = "wallbracket_id"), inverseJoinColumns = @JoinColumn(name = "television_id"))
     private List<Wallbracket> wallbrackets;
 
 
