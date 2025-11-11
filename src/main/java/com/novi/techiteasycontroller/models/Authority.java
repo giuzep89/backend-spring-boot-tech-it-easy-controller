@@ -17,7 +17,6 @@ public class Authority implements Serializable {
     @Column(nullable = false)
     private String authority;
 
-
     // Constructors
     public Authority() {}
 
@@ -26,16 +25,30 @@ public class Authority implements Serializable {
         this.authority = authority;
     }
 
+    @ManyToOne
+    @MapsId("username")
+    @JoinColumn(name = "username")
+    private User user;
+
     // Getters and setters
 
-    // -------> Setters are best avoided in an authority model class,
+    // -------> Setters for the authority are best avoided,
     // as it might cause breaking its tight relationship with the user class
+    // but setters for the associated User are ok
+
+    public String getUsername() {
+        return username;
+    }
 
     public String getAuthority() {
         return authority;
     }
 
-    public void setAuthority(String authority) {
-        this.authority = authority;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return this.user;
     }
 }

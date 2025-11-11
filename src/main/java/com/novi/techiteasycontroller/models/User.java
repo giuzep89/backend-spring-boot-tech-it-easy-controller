@@ -24,15 +24,23 @@ public class User {
 
     @OneToMany(
             targetEntity = Authority.class,
-            mappedBy = "username",
+            mappedBy = "user",
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER
     )
     private Set<Authority> authorities = new HashSet<>();
 
+    // Authority methods
+
+    public void addAuthority(Authority authority) {
+        authorities.add(authority);
+        authority.setUser(this);
+    }
+
     public void removeAuthority(Authority authority) {
         this.authorities.remove(authority);
+        authority.setUser(null);
     }
 
     // Getters and setters
@@ -71,9 +79,5 @@ public class User {
 
     public Set<Authority> getAuthorities() {
         return authorities;
-    }
-
-    public void setAuthorities(Set<Authority> authorities) {
-        this.authorities = authorities;
     }
 }
