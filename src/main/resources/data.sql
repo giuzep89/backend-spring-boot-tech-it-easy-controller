@@ -1,4 +1,20 @@
 -- -----------------------------------------------------------
+-- 0. USERS AND ADMINS
+-- -----------------------------------------------------------
+INSERT INTO users (username, password, enabled, email)
+VALUES
+    ('admin', '$2a$10$X5wFBtLrL/kHcmrOGGTrGevjue5XL7nHBXNOgJc7b7lq9d/K9gKy2', true, 'admin@techiteasy.com'),
+    ('user', '$2a$10$X5wFBtLrL/kHcmrOGGTrGevjue5XL7nHBXNOgJc7b7lq9d/K9gKy2', true, 'user@techiteasy.com')
+    ON CONFLICT (username) DO NOTHING;
+
+INSERT INTO authorities (username, authority)
+VALUES
+    ('admin', 'ROLE_ADMIN'),
+    ('admin', 'ROLE_USER'),
+    ('user', 'ROLE_USER')
+    ON CONFLICT (username, authority) DO NOTHING;
+
+-- -----------------------------------------------------------
 -- 1. REMOTE_CONTROLLERS (Master Data)
 -- -----------------------------------------------------------
 INSERT INTO remote_controllers (compatible_with, battery_type, name, brand, price, original_stock)
@@ -55,3 +71,4 @@ VALUES (1, 2), -- TV 1 (LG) can use Wallbracket 2 (Pro-Tilt 55")
        (2, 4), -- TV 2 (Samsung 8K) needs Wallbracket 4 (Omni-Swivel 8K)
        (3, 1), -- TV 3 (Philips 40") can use Wallbracket 1 (Flexi-Mount Small)
        (5, 2); -- TV 5 (Samsung Frame 50") can use Wallbracket 2 (Pro-Tilt 55")
+

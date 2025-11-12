@@ -16,13 +16,12 @@ public class ExceptionController {
 
     @ExceptionHandler(value = RecordNotFoundException.class)
     public ResponseEntity<Object> handleNotFound(RecordNotFoundException exception) {
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
-        // change to ResponseEntity.status (without using NEW)
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
     @ExceptionHandler(value = NameTooLongException.class)
     public ResponseEntity<Object> handleNameTooLong(NameTooLongException exception){
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
 
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
@@ -36,11 +35,11 @@ public class ExceptionController {
 
     @ExceptionHandler(value = UsernameNotFoundException.class)
     public ResponseEntity<Object> handleUsernameNotFound(UsernameNotFoundException exception){
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
     @ExceptionHandler(value = BadRequestException.class)
     public ResponseEntity<Object> handleBadRequest(BadRequestException exception){
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
 }
