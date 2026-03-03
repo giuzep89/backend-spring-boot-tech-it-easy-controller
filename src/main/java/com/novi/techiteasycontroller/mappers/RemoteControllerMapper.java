@@ -9,10 +9,10 @@ public class RemoteControllerMapper {
     public static RemoteController toEntity(RemoteControllerInputDto remoteControllerInputDto) {
         RemoteController remoteController = new RemoteController();
 
+        remoteController.setName(remoteControllerInputDto.name);
         remoteController.setBrand(remoteControllerInputDto.brand);
         remoteController.setPrice(remoteControllerInputDto.price);
         remoteController.setCompatibleWith(remoteControllerInputDto.compatibleWith);
-        remoteController.setPrice(remoteControllerInputDto.price);
         remoteController.setBatteryType(remoteControllerInputDto.batteryType);
 
         return remoteController;

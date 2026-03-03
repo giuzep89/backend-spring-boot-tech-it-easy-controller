@@ -37,7 +37,6 @@ public class WallbracketService {
         List<WallbracketDto> wallbracketDtos = new ArrayList<>();
 
         for (Wallbracket wallbracket : wallbrackets) {
-            WallbracketMapper.toDto(wallbracket);
             wallbracketDtos.add(WallbracketMapper.toDto(wallbracket));
         }
 

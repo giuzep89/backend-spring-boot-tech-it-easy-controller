@@ -37,7 +37,6 @@ public class CIModuleService {
         List<CIModuleDto> ciModuleDtos = new ArrayList<>();
 
         for (CIModule ciModule : ciModules) {
-            CIModuleMapper.toDto(ciModule);
             ciModuleDtos.add(CIModuleMapper.toDto(ciModule));
         }
 
