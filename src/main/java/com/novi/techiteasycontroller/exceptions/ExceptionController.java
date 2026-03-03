@@ -1,6 +1,6 @@
 package com.novi.techiteasycontroller.exceptions;
 
-import org.apache.coyote.BadRequestException;
+import com.novi.techiteasycontroller.exceptions.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

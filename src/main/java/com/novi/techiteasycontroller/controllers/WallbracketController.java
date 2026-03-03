@@ -27,7 +27,7 @@ public class WallbracketController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<WallbracketDto> getWallbracketById(@RequestParam Long id){
+    public ResponseEntity<WallbracketDto> getWallbracketById(@PathVariable Long id){
         return ResponseEntity.ok(wallbracketService.getWallbracketById(id));
     }
 
@@ -45,7 +45,7 @@ public class WallbracketController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<WallbracketDto> updateWallbracketPrice(@Valid @PathVariable Long id, WallbracketInputDto wallbracketInputDto){
+    public ResponseEntity<WallbracketDto> updateWallbracketPrice(@PathVariable Long id, @Valid @RequestBody WallbracketInputDto wallbracketInputDto){
         WallbracketDto dto = wallbracketService.updateWallbracketPrice(id, wallbracketInputDto);
 
         return ResponseEntity.ok(dto);

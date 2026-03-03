@@ -27,7 +27,7 @@ public class RemoteControllerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RemoteControllerDto> getRemoteControllerById(Long id) {
+    public ResponseEntity<RemoteControllerDto> getRemoteControllerById(@PathVariable Long id) {
         RemoteControllerDto remoteControllerDto = remoteControllerService.getRemoteControllerById(id);
 
         return ResponseEntity.ok(remoteControllerDto);
@@ -43,17 +43,18 @@ public class RemoteControllerController {
                 .buildAndExpand(newRemote.id)
                 .toUriString());
 
-        return ResponseEntity.created(null).body(newRemote);
+        return ResponseEntity.created(location).body(newRemote);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RemoteControllerDto> updateRemoteControllerPrice(@Valid Long id, @RequestBody RemoteControllerInputDto inputDto) {
+    public ResponseEntity<RemoteControllerDto> updateRemoteControllerPrice(@PathVariable Long id, @Valid @RequestBody RemoteControllerInputDto inputDto) {
         RemoteControllerDto remoteControllerDto = remoteControllerService.updateRemoteControllerPrice(id, inputDto);
 
         return ResponseEntity.ok(remoteControllerDto);
     }
 
-    public ResponseEntity<RemoteControllerDto> deleteRemoteController(Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<RemoteControllerDto> deleteRemoteController(@PathVariable Long id) {
         remoteControllerService.deleteRemoteControllerById(id);
 
         return ResponseEntity.noContent().build();
