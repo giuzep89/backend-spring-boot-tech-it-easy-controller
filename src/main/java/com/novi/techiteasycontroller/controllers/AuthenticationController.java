@@ -18,7 +18,7 @@ public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
     private final CustomUserDetailsService customUserDetailsService;
-    public final JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
 
     public AuthenticationController(AuthenticationManager authenticationManager, CustomUserDetailsService customUserDetailsService, JwtUtil jwtUtil) {

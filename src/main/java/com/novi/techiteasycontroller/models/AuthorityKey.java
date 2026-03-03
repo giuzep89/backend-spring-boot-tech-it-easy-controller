@@ -13,7 +13,10 @@ public class AuthorityKey implements Serializable {
     // Constructors
     public AuthorityKey() {
     }
-    public AuthorityKey(String username, String authority) {}
+    public AuthorityKey(String username, String authority) {
+        this.username = username;
+        this.authority = authority;
+    }
 
 
     // Required equals and hashCode overrides
